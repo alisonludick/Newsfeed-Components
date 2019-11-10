@@ -107,40 +107,42 @@ const data = [
 function createNewsComp(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   // add elements
   const mainDiv = document.createElement('div'); 
-  const mainTitle = document.createElement('h2'); 
-  const datePara = document.createElement('p'); 
-  const firstPara = document.createElement('p'); 
-  const secondPara = document.createElement('p'); 
-  const thirdPara = document.createElement('p'); 
-  const spanButton = document.createElement('span'); 
+  const h2 = document.createElement('h2'); 
+  const p1 = document.createElement('p'); 
+  const p2 = document.createElement('p'); 
+  const p3 = document.createElement('p'); 
+  const p4 = document.createElement('p'); 
+  const span = document.createElement('span'); 
   
   // add children elements to parent
-  mainDiv.appendChild(mainTitle); 
-  mainDiv.appendChild(datePara); 
-  mainDiv.appendChild(firstPara); 
-  mainDiv.appendChild(secondPara); 
-  mainDiv.appendChild(thirdPara); 
-  mainDiv.appendChild(spanButton); 
+  mainDiv.appendChild(h2); 
+  mainDiv.appendChild(p1); 
+  mainDiv.appendChild(p2); 
+  mainDiv.appendChild(p3); 
+  mainDiv.appendChild(p4); 
+  mainDiv.appendChild(span); 
   
   // set class names
   mainDiv.classList.add('article'); 
-  datePara.classList.add('date'); 
-  spanButton.classList.add('expandButton'); 
+  p1.classList.add('date'); 
+  span.classList.add('expandButton'); 
   
   // add content
-  mainTitle.textContent = title; 
-  datePara.textContent = date; 
-  firstPara.textContent = firstParagraph; 
-  secondPara.textContent = secondParagraph; 
-  thirdPara.textContent = thirdParagraph; 
+  h2.textContent = title; 
+  p1.textContent = date; 
+  p2.textContent = firstParagraph; 
+  p3.textContent = secondParagraph; 
+  p4.textContent = thirdParagraph; 
+  span.textContent = 'Show / Hide Article'; 
+  
   
   // functionality
   // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
-  spanButton.addEventListener('click', () => {
+  span.addEventListener('click', (event) => {
     mainDiv.classList.toggle('article-open');
-    console.log('clicked!');
-  });
-  
+    // console.log('clicked!');
+  })
+
   //  Step 3: return the entire component
   console.log('return a panel component'); 
   return mainDiv; 
@@ -156,4 +158,3 @@ data.forEach(obj => {
 })
   
 // Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-
